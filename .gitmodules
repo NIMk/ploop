@@ -1,0 +1,3 @@
+[submodule "avremote"]
+	path = avremote
+	url = git://code.dyne.org/avremote.git

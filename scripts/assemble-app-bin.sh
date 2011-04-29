@@ -23,6 +23,14 @@
                  
 appname=ploop
 
+if ! [ -r avremote/src/avremote ]; then
+    echo "error: first initialize avremote module and compile it."
+    exit 0
+fi
+
+echo "This script needs root to format a loopback filesystem"
+echo
+
 if [ -z $1 ]; then
     # no argument, create fresh
 
@@ -38,7 +46,7 @@ if [ -z $1 ]; then
     mkdir -p $appdir/bin
     mkdir -p $appdir/etc/init.d
     
-    cp -v src/avremote $appdir/bin &&    
+    cp -v avremote/src/avremote $appdir/bin &&    
     cp -v scripts/S88ploop $appdir/etc/init.d &&
     chmod a+x $appdir/etc/init.d/S88ploop &&
     cp -v README AUTHORS $appdir &&
